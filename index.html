@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Spotify</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Genres</a>
+                        <div class="dropdown-content">
+                            <a href="#" onclick="showPage('pop')">Pop</a>
+                            <a href="#" onclick="showPage('rock')">Rock</a>
+                            <a href="#" onclick="showPage('hiphop')">Hip Hop</a>
+                        </div>
+                    </li>
+                    <li><a href="#" onclick="showPage('playlists')">Playlists</a></li>
+                    <li><a href="#" onclick="showPage('profile')">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div id="home" class="page">
+            <div class="container">
+                <h2>Home Page</h2>
+                <p>Welcome to the Spotify website!</p>
+            </div>
+        </div>
+        <div id="pop" class="page" style="display: none;">
+            <div class="container">
+                <h2>Pop Music</h2>
+                <p>Explore the latest pop hits and playlists.</p>
+            </div>
+        </div>
+        <div id="rock" class="page" style="display: none;">
+            <div class="container">
+                <h2>Rock Music</h2>
+                <p>Discover the best rock bands and albums.</p>
+            </div>
+        </div>
+        <div id="hiphop" class="page" style="display: none;">
+            <div class="container">
+                <h2>Hip Hop Music</h2>
+                <p>Get into the groove with hip hop tracks and artists.</p>
+            </div>
+        </div>
+        <div id="playlists" class="page" style="display: none;">
+            <div class="container">
+                <h2>Playlists</h2>
+                <p>Check out curated playlists for every mood and occasion.</p>
+            </div>
+        </div>
+        <div id="profile" class="page" style="display: none;">
+            <div class="container">
+                <h2>Profile</h2>
+                <p>Manage your profile settings and preferences.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
