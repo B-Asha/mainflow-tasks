@@ -3,70 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify Website</title>
+    <title>Login and Signup</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Spotify</h1>
-            <nav>
-                <ul>
-                    <li><a href="#" onclick="showPage('home')">Home</a></li>
-                    <li class="dropdown">
-                        <a href="#">Genres</a>
-                        <div class="dropdown-content">
-                            <a href="#" onclick="showPage('pop')">Pop</a>
-                            <a href="#" onclick="showPage('rock')">Rock</a>
-                            <a href="#" onclick="showPage('hiphop')">Hip Hop</a>
-                        </div>
-                    </li>
-                    <li><a href="#" onclick="showPage('playlists')">Playlists</a></li>
-                    <li><a href="#" onclick="showPage('profile')">Profile</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <div id="home" class="page">
-            <div class="container">
-                <h2>Home Page</h2>
-                <p>Welcome to the Spotify website!</p>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <button class="tablink" onclick="openForm(event, 'Login')">Login</button>
+                <button class="tablink" onclick="openForm(event, 'Signup')">Signup</button>
+            </div>
+            <div id="Login" class="form-content">
+                <h2>Login</h2>
+                <form action="login.php" method="POST">
+                    <label for="loginEmail">Email:</label>
+                    <input type="email" id="loginEmail" name="loginEmail" required>
+                    <label for="loginPassword">Password:</label>
+                    <input type="password" id="loginPassword" name="loginPassword" required>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+            <div id="Signup" class="form-content" style="display:none;">
+                <h2>Signup</h2>
+                <form action="signup.php" method="POST">
+                    <label for="signupName">Name:</label>
+                    <input type="text" id="signupName" name="signupName" required>
+                    <label for="signupEmail">Email:</label>
+                    <input type="email" id="signupEmail" name="signupEmail" required>
+                    <label for="signupPassword">Password:</label>
+                    <input type="password" id="signupPassword" name="signupPassword" required>
+                    <button type="submit">Signup</button>
+                </form>
             </div>
         </div>
-        <div id="pop" class="page" style="display: none;">
-            <div class="container">
-                <h2>Pop Music</h2>
-                <p>Explore the latest pop hits and playlists.</p>
-            </div>
-        </div>
-        <div id="rock" class="page" style="display: none;">
-            <div class="container">
-                <h2>Rock Music</h2>
-                <p>Discover the best rock bands and albums.</p>
-            </div>
-        </div>
-        <div id="hiphop" class="page" style="display: none;">
-            <div class="container">
-                <h2>Hip Hop Music</h2>
-                <p>Get into the groove with hip hop tracks and artists.</p>
-            </div>
-        </div>
-        <div id="playlists" class="page" style="display: none;">
-            <div class="container">
-                <h2>Playlists</h2>
-                <p>Check out curated playlists for every mood and occasion.</p>
-            </div>
-        </div>
-        <div id="profile" class="page" style="display: none;">
-            <div class="container">
-                <h2>Profile</h2>
-                <p>Manage your profile settings and preferences.</p>
-            </div>
-        </div>
-    </main>
-
-    <script src="script.js"></script>
+    </div>
+    <script>
+        function openForm(evt, formName) {
+            var i, formContent, tablinks;
+            formContent = document.getElementsByClassName("form-content");
+            for (i = 0; i < formContent.length; i++) {
+                formContent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(formName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
 </body>
 </html>
